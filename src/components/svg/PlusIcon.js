@@ -2,10 +2,10 @@ import React from "react";
 import styled from 'styled-components';
 
 const Icon = styled.svg`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   fill: ${props => props.theme.colorWhite};
-  margin-right: 15px;
+  margin-right: 21px;
 `
 
 const PlusIcon = () => 

@@ -16,7 +16,7 @@ const Quote = styled.h1`
 
 const Wrapper = styled.header`
   background: ${props => props.theme.colorMain};
-  height: 30vh;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;

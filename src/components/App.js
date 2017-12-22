@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { themeProvider, ThemeProvider } from 'styled-components';
 
 import Header from './Header';
+import CardsHolder from './CardsHolder';
 
 const theme = {
   colorMain: '#1054F5',
@@ -12,7 +13,10 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Header/>
+        <div>
+          <Header/>
+          <CardsHolder/>
+        </div>
       </ThemeProvider>
     )
   }

@@ -19,6 +19,7 @@ const Logo = styled.h3`
     width: 140px;
     text-align: center;
     text-transform: uppercase;
+    margin-left: 8px;
 `
 
 class Navigation extends Component {

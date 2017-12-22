@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Brand = styled.svg`
     width: 40px;
     height: 40px;
-    fill: white;
-    border: 1px solid ${props => props.theme.colorWhite};
+    fill: ${props => props.theme.colorWhite};
+    border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 10px;
     border-radius: 100%;
 `
