@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import BuildingCard from './BuildingCard';
+
 class CardsHolder extends Component {
   constructor() {
     super();
@@ -22,7 +24,7 @@ class CardsHolder extends Component {
   }
 
   renderBuildings() {
-      return this.state.buildings.map(building => <li>{building.name}</li>)
+      return this.state.buildings.map(building => <BuildingCard key={building.id} building={building}/>)
   }
 
   render() {
