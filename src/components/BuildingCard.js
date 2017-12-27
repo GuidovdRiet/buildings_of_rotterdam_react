@@ -3,8 +3,11 @@ import styled from 'styled-components';
 
 const Card = styled.div`
     background: URL(${props => props.image});
-    width: 200px;
-    height: 100px;
+    background-size: cover;
+    flex-grow: 1;
+    min-width: 25%;
+    height: 400px;
+    margin: 10px;
 `
 
 class BuildingCard extends Component {

@@ -4,15 +4,18 @@ import styled from 'styled-components';
 
 import BuildingCard from './BuildingCard';
 
-const CardsWrapper = styled.div`
-  background: red;
-  width: 80%;
-`
-
 const ContentWrapper = styled.section`
-  background: yellow;
   display: flex;
   justify-content: center;
+  margin-top: -40px;
+`
+
+const CardsWrapper = styled.div`
+  width: 90%;
+  max-width: 1130px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
 `
 
 class CardsHolder extends Component {
