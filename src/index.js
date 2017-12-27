@@ -12,6 +12,8 @@ injectGlobal`
         padding: 0;
         font-family: 'Raleway', sans-serif;
         font-size: 62.5%;
+        box-sizing: border-box;
+        margin: 0;
         //-webkit-text-stroke-width: .05px;
         //-webkit-text-stroke-color: white;
         -webkit-font-smoothing: antialiased;

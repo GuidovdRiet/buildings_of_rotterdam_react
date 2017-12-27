@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from 'styled-components'; 
 
 import BuildingCard from './BuildingCard';
+
+const CardsWrapper = styled.div`
+  background: red;
+  width: 80%;
+`
+
+const ContentWrapper = styled.section`
+  background: yellow;
+  display: flex;
+  justify-content: center;
+`
 
 class CardsHolder extends Component {
   constructor() {
@@ -29,9 +41,11 @@ class CardsHolder extends Component {
 
   render() {
     return (
-        <ul>
-            {this.renderBuildings()}
-        </ul>
+        <ContentWrapper>
+          <CardsWrapper>
+              {this.renderBuildings()}
+          </CardsWrapper>
+        </ContentWrapper>
     )
   }
 }
