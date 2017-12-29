@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import App from './components/App';
+import AddBuilding from './components/AddBuilding';
 
 import { injectGlobal } from 'styled-components';
 
@@ -25,6 +26,7 @@ const Root = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={App} />
+                <Route path="/buildings/add" component={AddBuilding} />
                 <Redirect from='*' to='/' />
             </Switch>
         </BrowserRouter>

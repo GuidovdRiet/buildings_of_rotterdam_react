@@ -3,6 +3,7 @@ import { themeProvider, ThemeProvider } from "styled-components";
 
 import Header from "./Header";
 import CardsHolder from "./CardsHolder";
+import AddBuilding from "./AddBuilding";
 
 import Navigation from "./Navigation";
 
@@ -17,11 +18,19 @@ class App extends Component {
     this.addBackgroundOnScroll = this.addBackgroundOnScroll.bind(this);
     this.getHeaderHeight = this.getHeaderHeight.bind(this);
     this.getNavigationHeight = this.getNavigationHeight.bind(this);
+    this.toggleHidden = this.toggleHidden.bind(this);
     this.state = {
       headerHeight: {},
       navigationHeight: {},
-      navBackground: false
+      navBackground: false,
+      isHidden: true
     };
+  }
+
+  toggleHidden(e) {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   getHeaderHeight(height) {
@@ -57,10 +66,12 @@ class App extends Component {
         <div>
           <Header getHeight={this.getHeaderHeight} />
           <Navigation
-            getHeight={this.getNavigationHeight}
-            background={this.state.navBackground}
+          getHeight={this.getNavigationHeight}
+          background={this.state.navBackground}
+          toggleForm={this.toggleHidden}
           />
           <CardsHolder />
+          {!this.state.isHidden && <AddBuilding />}
         </div>
       </ThemeProvider>
     );

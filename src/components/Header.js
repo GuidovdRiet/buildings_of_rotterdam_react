@@ -45,10 +45,7 @@ const ContentWrapper = styled.div`
 `;
 
 class Header extends Component {
-  constructor() {
-    super();
-  }
-
+  
   componentDidMount() {
     this.props.getHeight(this.wrapper.clientHeight);
   }
