@@ -4,8 +4,6 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import Home from "./Home";
 
-import Header from "./Header";
-import CardsHolder from "./CardsHolder";
 import AddBuilding from "./AddBuilding";
 
 import Navigation from "./Navigation";
@@ -18,9 +16,11 @@ const theme = {
 class App extends Component {
   constructor() {
     super();
+
     this.addBackgroundOnScroll = this.addBackgroundOnScroll.bind(this);
     this.getHeaderHeight = this.getHeaderHeight.bind(this);
     this.getNavigationHeight = this.getNavigationHeight.bind(this);
+    this.setNavigationBackground = this.setNavigationBackground.bind(this);
 
     this.state = {
       headerHeight: {},
@@ -35,6 +35,10 @@ class App extends Component {
 
   getNavigationHeight(height) {
     this.setState({ navigationHeight: height });
+  }
+
+  setNavigationBackground(visibility) {
+    this.setState({ navBackground: visibility });
   }
 
   addBackgroundOnScroll() {
@@ -69,9 +73,21 @@ class App extends Component {
               <Route
                 exact
                 path="/"
-                render={() => <Home getHeaderHeight={this.getHeaderHeight} />}
+                render={() => (
+                  <Home
+                    getHeaderHeight={this.getHeaderHeight}
+                    setBackgroundColor={this.setNavigationBackground}
+                  />
+                )}
               />
-              <Route path="/buildings/add" component={AddBuilding} />
+              <Route
+                path="/buildings/add"
+                render={() => (
+                  <AddBuilding
+                    setBackgroundColor={this.setNavigationBackground}
+                  />
+                )}
+              />
               <Redirect from="*" to="/" />
             </Switch>
           </div>

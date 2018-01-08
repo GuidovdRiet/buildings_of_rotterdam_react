@@ -9,7 +9,7 @@ const Nav = styled.nav`
   width: 100%;
   display: flex;
   transition: all .2s ease-in;
-  background: ${props => props.background ? 'rgba(26, 90, 241, 0.95)' : ''};
+  background: ${props => props.backgroundColor ? 'rgba(26, 90, 241, 0.95)' : ''};
   justify-content: space-between;
   align-items: center;
   top: 0;
@@ -19,11 +19,14 @@ const Nav = styled.nav`
 const Logo = styled.h3`
   font-size: 1.7em;
   color: ${props => props.theme.colorWhite};
+  text-decoration: none;
   width: 140px;
   text-align: center;
   text-transform: uppercase;
   margin-left: 8px;
 `;
+
+
 
 const Add = styled.button`
   background: none;
@@ -55,8 +58,10 @@ class Navigation extends Component {
 
   render() {
     return (
-      <Nav innerRef={nav => (this.navigation = nav)} background={this.props.background} >
-        <Logo>Buildings of Rotterdam</Logo>
+      <Nav innerRef={nav => (this.navigation = nav)} backgroundColor={this.props.background} >
+        <Link to={'/'} >
+          <Logo>Buildings of Rotterdam</Logo>
+        </Link>
         <Link to={'/buildings/add'}>
           <Add />
         </Link>  
