@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { themeProvider, ThemeProvider } from "styled-components";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+
+import Home from "./Home";
 
 import Header from "./Header";
 import CardsHolder from "./CardsHolder";
@@ -18,19 +21,12 @@ class App extends Component {
     this.addBackgroundOnScroll = this.addBackgroundOnScroll.bind(this);
     this.getHeaderHeight = this.getHeaderHeight.bind(this);
     this.getNavigationHeight = this.getNavigationHeight.bind(this);
-    this.toggleHidden = this.toggleHidden.bind(this);
+
     this.state = {
       headerHeight: {},
       navigationHeight: {},
-      navBackground: false,
-      isHidden: true
+      navBackground: false
     };
-  }
-
-  toggleHidden(e) {
-    this.setState({
-      isHidden: !this.state.isHidden
-    })
   }
 
   getHeaderHeight(height) {
@@ -63,16 +59,23 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <div>
-          <Header getHeight={this.getHeaderHeight} />
-          <Navigation
-          getHeight={this.getNavigationHeight}
-          background={this.state.navBackground}
-          toggleForm={this.toggleHidden}
-          />
-          <CardsHolder />
-          {!this.state.isHidden && <AddBuilding />}
-        </div>
+        <BrowserRouter>
+          <div>
+            <Navigation
+              getHeight={this.getNavigationHeight}
+              background={this.state.navBackground}
+            />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => <Home getHeaderHeight={this.getHeaderHeight} />}
+              />
+              <Route path="/buildings/add" component={AddBuilding} />
+              <Redirect from="*" to="/" />
+            </Switch>
+          </div>
+        </BrowserRouter>
       </ThemeProvider>
     );
   }

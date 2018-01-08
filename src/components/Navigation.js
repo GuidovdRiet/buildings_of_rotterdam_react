@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
 import PlusIcon from "../images/plus-icon.svg";
+
+import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
   position: fixed;
@@ -52,15 +53,13 @@ class Navigation extends Component {
     this.props.getHeight(this.navigation.clientHeight);
   }
 
-  test = (e) => {
-    console.log(e)
-  } 
-
   render() {
     return (
-      <Nav innerRef={nav => (this.navigation = nav)} background={this.props.background}>
+      <Nav innerRef={nav => (this.navigation = nav)} background={this.props.background} >
         <Logo>Buildings of Rotterdam</Logo>
-        <Add onClick={this.props.toggleForm} />
+        <Link to={'/buildings/add'}>
+          <Add />
+        </Link>  
       </Nav>
     );
   }
