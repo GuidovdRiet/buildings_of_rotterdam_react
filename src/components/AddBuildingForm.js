@@ -2,18 +2,37 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const Form = styled.form`
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid ${props => props.theme.colorMain};
 `;
 
-const Input = styled.input``;
+const Input = styled.input`
+  padding: 10px;
+  line-height: 1;
+  font-size: 1.2rem;
+  border: 0;
+  border-bottom: 1px solid ${props => props.theme.colorMain};
+  border-right: 1px solid ${props => props.theme.colorMain};
+  border-left: 1px solid ${props => props.theme.colorMain};
+  border-radius: 0;
+  background: white;
+`;
 
-const Button = styled.button``;
+const Button = styled.button`
+  width 100%;
+  height: 30px;
+  margin-top: 20px;
+  border: 1px solid ${props => props.theme.colorMain};
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+    background: ${props => props.theme.colorMain};
+    color: #fff;
+  }
+`;
 
 class AddBuildingForm extends Component {
-  constructor() {
-    super();
-  }
-
   createBuildingCard(e) {
     e.preventDefault();
     const building = {
@@ -23,12 +42,13 @@ class AddBuildingForm extends Component {
       info: this.info.value,
       image: this.image.value
     };
+    this.createBuildingForm.reset();
     this.props.postBuilding(building);
   }
 
   render() {
     return (
-      <Form onSubmit={e => this.createBuildingCard(e)}>
+      <Form innerRef={form => this.createBuildingForm = form} onSubmit={e => this.createBuildingCard(e)}>
         <Input
           innerRef={input => (this.name = input)}
           placeholder="name"
@@ -51,7 +71,7 @@ class AddBuildingForm extends Component {
         />
         <Input
           innerRef={input => (this.image = input)}
-          placeholder="image"
+          placeholder="image url"
           type="text"
         />
         <Button type="submit">Add Building → </Button>
