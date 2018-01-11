@@ -18,6 +18,9 @@ injectGlobal`
         //-webkit-text-stroke-color: white;
         -webkit-font-smoothing: antialiased;
     }
+    a {
+        text-decoration: none;
+    }
 `
 
 const Root = () => <App/>;

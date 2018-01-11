@@ -29,7 +29,7 @@ class CardsHolder extends Component {
 
   componentDidMount() {
     axios
-      .get("http://45.77.98.181:8000/api/buildings")
+      .get("http://localhost:8000/api/buildings")
       .then(({ data }) => {
         this.setState({ buildings: data.items });
       })
