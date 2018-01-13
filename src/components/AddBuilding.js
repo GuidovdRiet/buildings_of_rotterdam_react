@@ -7,6 +7,9 @@ import AddBuildingForm from "./AddBuildingForm";
 
 const BuildingFormWrapper = styled.section`
   margin: 100px 10% 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const TextWrapper = styled.div`
@@ -30,7 +33,7 @@ const Title = styled.h2`
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  margin-top: 8px;
+  margin: 8px 0 12px 0;
   color: ${props => props.theme.colorMain};
   font-weight: 800;
 `;

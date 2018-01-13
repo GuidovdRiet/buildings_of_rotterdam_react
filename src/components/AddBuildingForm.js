@@ -4,6 +4,9 @@ import styled from "styled-components";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 40px;
   border-top: 1px solid ${props => props.theme.colorMain};
 `;
 

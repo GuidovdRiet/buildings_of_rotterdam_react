@@ -13,7 +13,7 @@ class Home extends Component {
         return(
             <div>
                 <Header getHeight={this.props.getHeaderHeight} />
-                <CardsHolder/>
+                <CardsHolder getBuildingId={this.props.getBuildingId}/>
             </div>
         )
     }

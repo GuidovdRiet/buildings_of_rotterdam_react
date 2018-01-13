@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
-import styled from 'styled-components'; 
+import styled from "styled-components";
 
-import BuildingCard from './BuildingCard';
+import BuildingCard from "./BuildingCard";
 
 const ContentWrapper = styled.section`
   display: flex;
   justify-content: center;
   margin-top: -40px;
-`
+`;
 
 const CardsWrapper = styled.div`
   width: 90%;
@@ -16,7 +16,7 @@ const CardsWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap-reverse;
-`
+`;
 
 class CardsHolder extends Component {
   constructor() {
@@ -29,7 +29,7 @@ class CardsHolder extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8000/api/buildings")
+      .get('http://localhost:8000/api/buildings')
       .then(({ data }) => {
         this.setState({ buildings: data.items });
       })
@@ -39,17 +39,17 @@ class CardsHolder extends Component {
   }
 
   renderBuildings() {
-      return this.state.buildings.map(building => <BuildingCard key={building.id} building={building}/>)
+    return this.state.buildings.map(building => (
+      <BuildingCard key={building.id} building={building} getBuildingId={this.props.getBuildingId}/>
+    ));
   }
 
   render() {
     return (
-        <ContentWrapper>
-          <CardsWrapper>
-              {this.renderBuildings()}
-          </CardsWrapper>
-        </ContentWrapper>
-    )
+      <ContentWrapper>
+        <CardsWrapper>{this.renderBuildings()}</CardsWrapper>
+      </ContentWrapper>
+    );
   }
 }
 

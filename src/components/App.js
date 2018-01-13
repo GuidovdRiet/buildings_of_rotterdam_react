@@ -3,10 +3,9 @@ import { themeProvider, ThemeProvider } from "styled-components";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import Home from "./Home";
-
 import AddBuilding from "./AddBuilding";
-
 import Navigation from "./Navigation";
+import ShowBuilding from "./showBuilding";
 
 const theme = {
   colorMain: "#1054F5",
@@ -21,12 +20,18 @@ class App extends Component {
     this.getHeaderHeight = this.getHeaderHeight.bind(this);
     this.getNavigationHeight = this.getNavigationHeight.bind(this);
     this.setNavigationBackground = this.setNavigationBackground.bind(this);
+    this.getBuildingId = this.getBuildingId.bind(this);
 
     this.state = {
       headerHeight: {},
       navigationHeight: {},
+      building: {},
       navBackground: false
     };
+  }
+
+  getBuildingId(building) {
+    this.setState({ building });
   }
 
   getHeaderHeight(height) {
@@ -75,6 +80,7 @@ class App extends Component {
                 path="/"
                 render={() => (
                   <Home
+                    getBuildingId={this.getBuildingId}
                     getHeaderHeight={this.getHeaderHeight}
                     setBackgroundColor={this.setNavigationBackground}
                   />
@@ -85,6 +91,15 @@ class App extends Component {
                 render={() => (
                   <AddBuilding
                     setBackgroundColor={this.setNavigationBackground}
+                  />
+                )}
+              />
+              <Route
+                path="/buildings/show/:id"
+                render={() => (
+                  <ShowBuilding
+                    setBackgroundColor={this.setNavigationBackground}
+                    building={this.state.building}
                   />
                 )}
               />
