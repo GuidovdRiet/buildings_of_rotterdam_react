@@ -10,6 +10,7 @@ const Card = styled.div`
   height: 400px;
   margin: 10px;
   transition: all 0.3s ease-in-out;
+  z-index: 2;
   &:hover {
     transform: scale(1.01);
     cursor: pointer;

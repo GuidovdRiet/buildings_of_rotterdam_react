@@ -13,6 +13,7 @@ const Nav = styled.nav`
     props.backgroundColor ? "rgba(26, 90, 241, 0.95)" : ""};
   justify-content: space-between;
   align-items: center;
+  z-index: 3;
   top: 0;
   left: 0;
 `;

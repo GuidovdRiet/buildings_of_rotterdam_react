@@ -92,8 +92,8 @@ class App extends Component {
                 path="/buildings/show/:id"
                 render={props => (
                   <ShowBuilding
-                    setNavigationBackgroundColor={this.setNavigationBackground}
                     building={this.state.building}
+                    setNavigationBackgroundColor={this.setNavigationBackground}
                     {...props}
                   />
                 )}

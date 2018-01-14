@@ -15,11 +15,11 @@ class ShowBuilding extends Component {
   }
 
   componentDidMount() {
-    this.props.setNavigationBackgroundColor(true);
     axios
       .get(`http://localhost:8000/api/buildings/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ building: res.data });
+        this.props.setNavigationBackgroundColor(true);
       })
       .catch(err => {
         console.log(err);
