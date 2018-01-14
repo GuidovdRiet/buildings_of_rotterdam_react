@@ -1,5 +1,10 @@
 import React, { Component } from "react";
+import styled from 'styled-components'
 import axios from "axios";
+
+const BuildingWrapper = styled.section`
+  margin-top: 100px;
+`
 
 class ShowBuilding extends Component {
   constructor() {
@@ -10,9 +15,9 @@ class ShowBuilding extends Component {
   }
 
   componentDidMount() {
-    this.props.setBackgroundColor(true);
+    this.props.setNavigationBackgroundColor(true);
     axios
-      .get(`http://localhost:8000/api/buildings/${this.props.building}`)
+      .get(`http://localhost:8000/api/buildings/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ building: res.data });
       })
@@ -23,10 +28,10 @@ class ShowBuilding extends Component {
 
   render() {
     return (
-      <div>
-        <h1>test</h1>
-        <h2>test</h2>
-      </div>
+      <BuildingWrapper>
+        <h1>{this.state.building ? this.state.building.name : ''}</h1>
+        <h2>{this.state.building ? this.state.building.architect : ''}</h2>
+      </BuildingWrapper>
     );
   }
 }

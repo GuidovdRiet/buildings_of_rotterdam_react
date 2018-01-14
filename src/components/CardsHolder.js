@@ -40,7 +40,7 @@ class CardsHolder extends Component {
 
   renderBuildings() {
     return this.state.buildings.map(building => (
-      <BuildingCard key={building.id} building={building} getBuildingId={this.props.getBuildingId}/>
+      <BuildingCard key={building.id} building={building} />
     ));
   }
 

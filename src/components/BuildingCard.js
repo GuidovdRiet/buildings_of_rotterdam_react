@@ -25,7 +25,6 @@ class BuildingCard extends Component {
   }
 
   getBuilding() {
-    this.props.getBuildingId(this.props.building.id);
     this.setState({ cardId: this.props.building.id });
   }
 

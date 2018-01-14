@@ -20,7 +20,6 @@ class App extends Component {
     this.getHeaderHeight = this.getHeaderHeight.bind(this);
     this.getNavigationHeight = this.getNavigationHeight.bind(this);
     this.setNavigationBackground = this.setNavigationBackground.bind(this);
-    this.getBuildingId = this.getBuildingId.bind(this);
 
     this.state = {
       headerHeight: {},
@@ -28,10 +27,6 @@ class App extends Component {
       building: {},
       navBackground: false
     };
-  }
-
-  getBuildingId(building) {
-    this.setState({ building });
   }
 
   getHeaderHeight(height) {
@@ -80,9 +75,8 @@ class App extends Component {
                 path="/"
                 render={() => (
                   <Home
-                    getBuildingId={this.getBuildingId}
                     getHeaderHeight={this.getHeaderHeight}
-                    setBackgroundColor={this.setNavigationBackground}
+                    setNavigationBackgroundColor={this.setNavigationBackground}
                   />
                 )}
               />
@@ -90,16 +84,17 @@ class App extends Component {
                 path="/buildings/add"
                 render={() => (
                   <AddBuilding
-                    setBackgroundColor={this.setNavigationBackground}
+                    setNavigationBackgroundColor={this.setNavigationBackground}
                   />
                 )}
               />
               <Route
                 path="/buildings/show/:id"
-                render={() => (
+                render={props => (
                   <ShowBuilding
-                    setBackgroundColor={this.setNavigationBackground}
+                    setNavigationBackgroundColor={this.setNavigationBackground}
                     building={this.state.building}
+                    {...props}
                   />
                 )}
               />

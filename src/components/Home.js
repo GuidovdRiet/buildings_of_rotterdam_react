@@ -6,14 +6,14 @@ import CardsHolder from './CardsHolder';
 class Home extends Component {
     
     componentDidMount() {
-        this.props.setBackgroundColor(false)
+        this.props.setNavigationBackgroundColor(false)
     }
     
     render() {
         return(
             <div>
                 <Header getHeight={this.props.getHeaderHeight} />
-                <CardsHolder getBuildingId={this.props.getBuildingId}/>
+                <CardsHolder />
             </div>
         )
     }

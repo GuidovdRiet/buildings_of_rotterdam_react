@@ -56,7 +56,7 @@ class AddBuilding extends Component {
   }
 
   componentDidMount() {
-    this.props.setBackgroundColor(true);
+    this.props.setNavigationBackgroundColor(true);
   }
 
   render() {
