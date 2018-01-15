@@ -9,6 +9,7 @@ import background from "../images/background-stripes.svg";
 const Quote = styled.h1`
   color: ${props => props.theme.colorWhite};
   text-align: center;
+  width: 60%;
 `;
 
 const QuoteAuthor = styled.h2`

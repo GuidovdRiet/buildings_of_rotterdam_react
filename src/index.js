@@ -7,12 +7,14 @@ import App from "./components/App";
 import { injectGlobal } from "styled-components";
 
 injectGlobal`
+    * {
+        box-sizing: border-box;
+    }
     body {
         margin: 0;
         padding: 0;
         font-family: 'Raleway', sans-serif;
         font-size: 62.5%;
-        box-sizing: border-box;
         margin: 0;
         //-webkit-text-stroke-width: .05px;
         //-webkit-text-stroke-color: white;
@@ -29,7 +31,6 @@ injectGlobal`
         font-size: 3.2em;
         font-family: "Playfair Display", serif;
         margin-bottom: 10px;
-        width: 60%;
     }
     h2 {
         font-size: 2.2em;
