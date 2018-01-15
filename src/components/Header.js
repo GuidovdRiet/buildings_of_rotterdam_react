@@ -7,22 +7,13 @@ import CircleIcon from "./svg/CircleIcon";
 import background from "../images/background-stripes.svg";
 
 const Quote = styled.h1`
-  font-size: 3.2em;
-  text-align: center;
-  font-family: "Playfair Display", serif;
   color: ${props => props.theme.colorWhite};
-  font-weight: lighter;
-  margin-bottom: 10px;
-  width: 60%;
+  text-align: center;
 `;
 
 const QuoteAuthor = styled.h2`
-  font-size: 2.2em;
   text-align: center;
-  margin-top: 8px;
-  font-family: "Playfair Display", serif;
   color: ${props => props.theme.colorWhite};
-  font-weight: lighter;
 `;
 
 const Wrapper = styled.header`
