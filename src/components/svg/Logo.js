@@ -2,8 +2,8 @@ import React from "react";
 import styled from 'styled-components';
 
 const Brand = styled.svg`
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     fill: ${props => props.theme.colorWhite};
     border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 10px;

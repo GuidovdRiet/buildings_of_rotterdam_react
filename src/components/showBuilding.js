@@ -18,16 +18,15 @@ const BuildingContainer = styled.section`
 `;
 
 const BuildingInfoWrapper = styled.div`
-  width: 20%;
-  max-width: 300px;
+  width: 300px;
   padding: 40px;
   margin-top: 30px;
   background: white;
 `;
 
 const BuildingName = styled.h1`
-  font-size: 10em;
-  max-width: 600px;
+  font-size: 8em;
+  max-width: 400px;
   text-shadow: 0px -1px 6px rgba(0, 0, 0, 0.2);
   color: white;
   margin-top: 10px;
@@ -46,7 +45,7 @@ const AdditionalInfo = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  bottom: 10px;
+  bottom: 15px;
   padding: 0 40px;
 `;
 
@@ -54,7 +53,7 @@ const Height = styled.p`
   margin: 32px 0 0 0;
   text-transform: uppercase;
   background: white;
-  width: 110px;
+  width: 77px;
   text-align: center;
   font-weight: 800;
   color: #454545;
@@ -64,14 +63,14 @@ const BuildYear = styled.p`
   margin: 32px 0 0 0;
   text-transform: uppercase;
   background: white;
-  width: 221px;
+  width: 150px;
   text-align: center;
   font-weight: 800;
   color: #454545;
 `;
 
-const HeightInfo = styled.h1`
-  font-size: 10em;
+const BuildingInfoNumber = styled.h1`
+  font-size: 7em;
   margin: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
@@ -124,14 +123,14 @@ class ShowBuilding extends Component {
           <BlockInfo>
             <CircleIcon primary/>
             <BuildYear>Build in Year</BuildYear>
-            <HeightInfo>1973</HeightInfo>
+            <BuildingInfoNumber>1973</BuildingInfoNumber>
           </BlockInfo>
           <BlockInfo>
             <CircleIcon primary/>
             <Height>Meters</Height>
-            <HeightInfo>
+            <BuildingInfoNumber>
               {this.state.building ? this.state.building.height : ""}
-            </HeightInfo>
+            </BuildingInfoNumber>
           </BlockInfo>
         </AdditionalInfo>
       </div>
