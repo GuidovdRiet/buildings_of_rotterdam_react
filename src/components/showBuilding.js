@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 import CircleIcon from './svg/CircleIcon';
 
@@ -16,6 +17,10 @@ const BuildingContainer = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
 `;
+
+const Edit = styled.button`
+
+`
 
 const BuildingInfoWrapper = styled.div`
   width: 300px;
@@ -126,6 +131,9 @@ class ShowBuilding extends Component {
             <BuildingInfoNumber>1973</BuildingInfoNumber>
           </BlockInfo>
           <BlockInfo>
+            <Link to={`/buildings/edit/${this.props.match.params.id}`}>
+              <Edit>Edit</Edit>
+            </Link>
             <CircleIcon primary/>
             <Height>Meters</Height>
             <BuildingInfoNumber>

@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Home from "./Home";
 import AddBuilding from "./AddBuilding";
 import Navigation from "./Navigation";
-import ShowBuilding from "./showBuilding";
+import ShowBuilding from "./ShowBuilding";
+import EditBuilding from "./EditBuilding";
 
 const theme = {
   colorMain: "#1054F5",
@@ -24,7 +25,6 @@ class App extends Component {
     this.state = {
       headerHeight: {},
       navigationHeight: {},
-      building: {},
       navBackground: false
     };
   }
@@ -92,7 +92,15 @@ class App extends Component {
                 path="/buildings/show/:id"
                 render={props => (
                   <ShowBuilding
-                    building={this.state.building}
+                    setNavigationBackgroundColor={this.setNavigationBackground}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/buildings/edit/:id"
+                render={props => (
+                  <EditBuilding
                     setNavigationBackgroundColor={this.setNavigationBackground}
                     {...props}
                   />

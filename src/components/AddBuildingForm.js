@@ -36,6 +36,7 @@ const Button = styled.button`
 `;
 
 class AddBuildingForm extends Component {
+
   createBuildingCard(e) {
     e.preventDefault();
     const building = {
@@ -43,7 +44,7 @@ class AddBuildingForm extends Component {
       architect: this.architect.value,
       height: this.height.value,
       info: this.info.value,
-      image: this.image.value
+      image: this.image.value,
     };
     this.createBuildingForm.reset();
     this.props.postBuilding(building);
@@ -54,27 +55,27 @@ class AddBuildingForm extends Component {
       <Form innerRef={form => this.createBuildingForm = form} onSubmit={e => this.createBuildingCard(e)}>
         <Input
           innerRef={input => (this.name = input)}
-          placeholder="name"
+          placeholder='name'
           type="text"
         />
         <Input
           innerRef={input => (this.architect = input)}
-          placeholder="architect"
+          placeholder='architect'
           type="text"
         />
         <Input
           innerRef={input => (this.height = input)}
-          placeholder="height"
+          placeholder='height'
           type="text"
         />
         <Input
           innerRef={input => (this.info = input)}
-          placeholder="info"
+          placeholder='info'
           type="text"
         />
         <Input
           innerRef={input => (this.image = input)}
-          placeholder="image url"
+          placeholder='image url'
           type="text"
         />
         <Button type="submit">Add Building → </Button>
