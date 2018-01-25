@@ -24,18 +24,27 @@ class EditBuilding extends Component {
       `http://localhost:8000/api/buildings/${this.props.match.params.id}`
     );
     this.setState({ building: data, loading: false });
-
     this.props.setNavigationBackgroundColor(true);
   }
 
-  editBuilding(e) {
+  async editBuilding(e) {
     e.preventDefault();
-    console.log(e.target.name.value);
+    const building = {
+      name: e.target.name.value,
+      architect: e.target.architect.value,
+      height: e.target.height.value,
+      image: e.target.image.value,
+      info: e.target.info.value
+    };
+    await axios.put(
+      `http://localhost:8000/api/buildings/${this.props.match.params.id}`,
+      building
+    );
+    this.setState({ building, loading: false });
   }
 
   render() {
     const { loading, building } = this.state;
-
     return (
       <div>
         {loading ? (
@@ -43,6 +52,14 @@ class EditBuilding extends Component {
         ) : (
           <Form onSubmit={e => this.editBuilding(e)}>
             <input type="text" defaultValue={building.name} name="name" />
+            <input
+              type="text"
+              defaultValue={building.architect}
+              name="architect"
+            />
+            <input type="text" defaultValue={building.height} name="height" />
+            <input type="text" defaultValue={building.image} name="image" />
+            <input type="text" defaultValue={building.info} name="info" />
             <button type="submit">submit</button>
           </Form>
         )}

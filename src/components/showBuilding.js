@@ -22,6 +22,10 @@ const Edit = styled.button`
 
 `
 
+const Delete = styled.button`
+
+`
+
 const BuildingInfoWrapper = styled.div`
   width: 300px;
   padding: 40px;
@@ -108,6 +112,10 @@ class ShowBuilding extends Component {
       });
   }
 
+  async deleteBuilding(e) { 
+    await axios.delete(`http://localhost:8000/api/buildings/${this.props.match.params.id}`);
+  }
+
   render() {
     return (
       <div>
@@ -133,6 +141,9 @@ class ShowBuilding extends Component {
           <BlockInfo>
             <Link to={`/buildings/edit/${this.props.match.params.id}`}>
               <Edit>Edit</Edit>
+            </Link>
+            <Link to={`/`}>
+              <Delete onClick={e => this.deleteBuilding(e)}>Delete</Delete>
             </Link>
             <CircleIcon primary/>
             <Height>Meters</Height>
